@@ -1,0 +1,11 @@
+<div class="search mb-4">
+  <label for="searchInput" class="search__label form-label">Search the galaxy</label>
+  <input
+    debouncedInput
+    type="search"
+    class="search__input form-control"
+    id="searchInput"
+    placeholder="e.g. Luke Skywaler"
+    (onInputEvent)="onSearch($event)"
+  />
+</div>

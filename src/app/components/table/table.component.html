@@ -1,0 +1,49 @@
+<app-search (search)="onSearch($event)"></app-search>
+<div *ngIf="isLoading" class="alert alert-dark" role="alert">
+  Searching the galaxy...
+</div>
+<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+  Error: {{ errorMessage }}.
+</div>
+<div *ngIf="people.length === 0 && !isLoading && !errorMessage" class="alert alert-danger" role="alert">
+  Whoops! No people were found.
+</div>
+<div *ngIf="people.length > 0 && !isLoading" class="people-list">
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Home planet</th>
+        <th scope="col">Films starred in</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of people">
+        <th scope="row">{{ person.name }}</th>
+        <td><app-planet-name [url]="person.homeworld"></app-planet-name></td>
+        <td>{{ person.films.length }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pagination align-items-center justify-content-center" role="group" aria-label="Pagination">
+    <li class="page-item">
+      <button
+        class="btn btn-outline-light"
+        [ngClass]="[previousUrl === null ? 'disabled' : '']"
+        (click)="handlePreviousPage()"
+      >
+        Prev
+      </button>
+    </li>
+    <li>&nbsp;&nbsp;&nbsp;</li>
+    <li class="page-item">
+      <button
+        class="btn btn-outline-light"
+        [ngClass]="[nextUrl === null ? 'disabled' : '']"
+        (click)="handleNextPage()"
+      >
+        Next
+      </button>
+    </li>
+  </div>
+</div>

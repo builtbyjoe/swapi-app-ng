@@ -1,0 +1,4 @@
+<div *ngIf="name === ''" class="spinner-border spinner-border-sm" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<span *ngIf="name !== ''">{{ name }}</span>
