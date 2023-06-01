@@ -2,6 +2,8 @@
 
 A playground for learning Angular. This is the result of a few hours or digging around the Angular docs.
 
+[Check out the demo](https://courageous-kitsune-05ce26.netlify.app/).
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.3.
 
 ## Development server
